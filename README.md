@@ -1,8 +1,7 @@
 # SplitMe
-Quick settings to toggle split screen for Android P and above devices.
+This repo contains a fork of [SplitMe](https://github.com/hidroh/splitme/), a project created by [Ha Duy Trung](https://github.com/hidroh) to add a quick settings tile to toggle split screen functionality in devices with Android 9 (Pie) and above, where this functionality may be hidden.
 
-Android P takes away the ability to quickly toggle split screen while one is watching video without interrupting play. This little uility adds a quick settings tile to bring it back.
+The fork was created to try to bring a little more life into the original project, by adding some additional features and experimenting a bit.
 
-[Download latest](https://github.com/hidroh/splitme/releases)
-
+### Preview:
 ![demo](demo.gif)
