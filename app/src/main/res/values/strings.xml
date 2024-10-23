@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">SplitMe</string>
+
     <string name="label_on">Split screen on</string>
     <string name="label_off">Split screen off</string>
-    <string name="description">In order to toggle split screen, which is a system action, SplitMe must be granted Accessibility access. The only action that will be triggered by this service is toggling split screen.</string>
-    <string name="summary">Toggle split screen</string>
-    <string name="accessibility_required">Accessibility service is required for this setting. Enable it?</string>
+
+    <string name="enable">Enable</string>
+    <string name="disable">Disable</string>
+    <string name="accessibility_service_label">Accessibility service</string>
+    <string name="battery_optimization_label">Battery optimization</string>
+    <string name="battery_optimization_description">To prevent the system from killing the app when it goes to the background, you must disable battery optimization for SplitMe.</string>
+
+    <string name="accessibility_service_summary">Toggle split screen</string>
+    <string name="accessibility_service_description">To toggle split screen, which is a system action, SplitMe must be granted Accessibility access. The only action that will be triggered by this service is toggling split screen.</string>
 </resources>
