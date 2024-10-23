@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SplitMe</string>
+
+    <string name="label_on">División activada</string>
+    <string name="label_off">División apagada</string>
+
+    <string name="enable">Activar</string>
+    <string name="disable">Apagar</string>
+    <string name="accessibility_service_label">Servicio de accesibilidad</string>
+    <string name="battery_optimization_label">Optimización de batería</string>
+    <string name="battery_optimization_description">Para evitar que el sistema mate el proceso de la aplicación cuando se ejecute en segundo plano, debe desactivar las optimizaciones de energía para SplitMe.</string>
+
+    <string name="accessibility_service_summary">Conmutar pantalla dividida</string>
+    <string name="accessibility_service_description">Para conmutar la pantalla dividida, que es una acción del sistema, debe conceder el permiso de Accesibilidad a SplitMe. La única acción que realizará este servicio es conmutar la pantalla dividida.</string>
+</resources>
