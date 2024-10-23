@@ -29,7 +29,7 @@ public class ChecklistActivity extends AppCompatActivity
     protected void onResume()
     {
         super.onResume();
-        binding.enableServiceButton.setEnabled(!Utils.isServiceEnabled(getApplicationContext()));
-        binding.disableOptimizationsButton.setEnabled(!Utils.isBatteryOptimizationDisabled(getApplicationContext()));
+        binding.enableServiceButton.setEnabled(!Utils.isServiceEnabled(this));
+        binding.disableOptimizationsButton.setEnabled(!Utils.isBatteryOptimizationDisabled(this));
     }
 }

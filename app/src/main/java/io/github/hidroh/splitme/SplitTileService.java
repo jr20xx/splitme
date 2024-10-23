@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.drawable.Icon;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
+import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class SplitTileService extends TileService
@@ -17,7 +18,7 @@ public class SplitTileService extends TileService
     private int iconResId = R.drawable.ic_split_black_24dp;
     private final BroadcastReceiver receiver = new BroadcastReceiver()
     {
-        public void onReceive(Context context, Intent intent)
+        public void onReceive(Context context, @NonNull Intent intent)
         {
             updateTileState(intent.getBooleanExtra(Constants.EXTRA_IS_IN_SPLIT_SCREEN, false));
         }
@@ -38,14 +39,14 @@ public class SplitTileService extends TileService
 
     public void onClick()
     {
-        if (Utils.isServiceEnabled(getApplicationContext()) && Utils.isBatteryOptimizationDisabled(getApplicationContext()))
+        if (Utils.isServiceEnabled(this) && Utils.isBatteryOptimizationDisabled(this))
         {
             isActive = !isActive;
             updateTileState(isActive);
             toggleAndCollapse();
         }
         else
-            startActivity(new Intent(getApplicationContext(), ChecklistActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            startActivity(new Intent(this, ChecklistActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
     public void onConfigurationChanged(Configuration newConfig)
@@ -80,7 +81,7 @@ public class SplitTileService extends TileService
                 .setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
-    private void updateIcon(Configuration newConfig)
+    private void updateIcon(@NonNull Configuration newConfig)
     {
         iconResId = (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) ?
                 R.drawable.ic_split_land_black_24dp : R.drawable.ic_split_black_24dp;
