@@ -1,6 +1,9 @@
 package io.github.hidroh.splitme;
 
 import android.annotation.SuppressLint;
+import android.app.admin.DeviceAdminReceiver;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +26,8 @@ public class ChecklistActivity extends AppCompatActivity
         binding.disableOptimizationsButton.setOnClickListener((v) ->
                 startActivity(new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:" + getPackageName())))
         );
+        binding.enableDeviceAdminButton.setOnClickListener((v) -> startActivity(new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
+                .putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, new ComponentName(this, DeviceAdminReceiver.class))));
     }
 
     @Override
@@ -31,5 +36,6 @@ public class ChecklistActivity extends AppCompatActivity
         super.onResume();
         binding.enableServiceButton.setEnabled(!Utils.isServiceEnabled(this));
         binding.disableOptimizationsButton.setEnabled(!Utils.isBatteryOptimizationDisabled(this));
+        binding.enableDeviceAdminButton.setEnabled(!Utils.isDeviceAdminEnabled(this));
     }
 }

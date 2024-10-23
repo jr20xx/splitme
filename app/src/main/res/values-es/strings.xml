@@ -9,6 +9,8 @@
     <string name="accessibility_service_label">Servicio de accesibilidad</string>
     <string name="battery_optimization_label">Optimización de batería</string>
     <string name="battery_optimization_description">Para evitar que el sistema mate el proceso de la aplicación cuando se ejecute en segundo plano, debe desactivar las optimizaciones de energía para SplitMe.</string>
+    <string name="device_admin_label">Administrador del dispositivo</string>
+    <string name="device_admin_description">Para ayudar a que la aplicación siga corriendo en segundo plano y evitar desinstalaciones accidentales, SplitMe requiere acceso como Administrador del Dispositivo. Esto es completamente opcional y usted puede desactivarlo cuando guste.</string>
 
     <string name="accessibility_service_summary">Conmutar pantalla dividida</string>
     <string name="accessibility_service_description">Para conmutar la pantalla dividida, que es una acción del sistema, debe conceder el permiso de Accesibilidad a SplitMe. La única acción que realizará este servicio es conmutar la pantalla dividida.</string>

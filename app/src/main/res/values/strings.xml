@@ -9,6 +9,8 @@
     <string name="accessibility_service_label">Accessibility service</string>
     <string name="battery_optimization_label">Battery optimization</string>
     <string name="battery_optimization_description">To prevent the system from killing the app when it goes to the background, you must disable battery optimization for SplitMe.</string>
+    <string name="device_admin_label">Device Administrator</string>
+    <string name="device_admin_description">To help the app to keep running in the background and prevent accidental uninstalls, SplitMe requires access as Device Administrator. This is completely optional and you can turn it off whenever you want.</string>
 
     <string name="accessibility_service_summary">Toggle split screen</string>
     <string name="accessibility_service_description">To toggle split screen, which is a system action, SplitMe must be granted Accessibility access. The only action that will be triggered by this service is toggling split screen.</string>
