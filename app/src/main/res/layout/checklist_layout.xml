@@ -29,6 +29,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:layout_weight="1"
+                        android:singleLine="true"
                         android:text="@string/accessibility_service_label"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -43,7 +44,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="3dp"
                     android:text="@string/accessibility_service_description"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -63,6 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:layout_weight="1"
+                        android:singleLine="true"
                         android:text="@string/battery_optimization_label"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -77,7 +78,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="3dp"
                     android:text="@string/battery_optimization_description"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -97,6 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="3dp"
                         android:layout_weight="1"
+                        android:singleLine="true"
                         android:text="@string/device_admin_label"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -111,7 +112,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="3dp"
                     android:text="@string/device_admin_description"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
