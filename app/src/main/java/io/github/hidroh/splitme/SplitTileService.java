@@ -9,11 +9,10 @@ import android.graphics.drawable.Icon;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import androidx.annotation.NonNull;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.core.content.ContextCompat;
 
 public class SplitTileService extends TileService
 {
-    private LocalBroadcastManager localBroadcastManager;
     private boolean isActive = false;
     private int iconResId = R.drawable.ic_split_black_24dp;
     private final BroadcastReceiver receiver = new BroadcastReceiver()
@@ -26,15 +25,16 @@ public class SplitTileService extends TileService
 
     public void onStartListening()
     {
-        localBroadcastManager = LocalBroadcastManager.getInstance(this);
-        localBroadcastManager.registerReceiver(receiver, new IntentFilter(Constants.ACTION_SPLIT_SCREEN_CHECKED));
-        updateIcon(this.getResources().getConfiguration());
-        checkSplitScreen();
+        ContextCompat.registerReceiver(this, receiver, new IntentFilter(Constants.ACTION_SPLIT_SCREEN_CHECKED), ContextCompat.RECEIVER_NOT_EXPORTED);
+        updateIcon(getResources().getConfiguration());
+        startActivity(new Intent(this, InvisibleActivity.class)
+                .setAction(Constants.ACTION_CHECK_SPLIT_SCREEN)
+                .setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
     public void onStopListening()
     {
-        localBroadcastManager.unregisterReceiver(receiver);
+        unregisterReceiver(receiver);
     }
 
     public void onClick()
@@ -72,13 +72,6 @@ public class SplitTileService extends TileService
             tile.setIcon(Icon.createWithResource(this, iconResId));
             tile.updateTile();
         }
-    }
-
-    private void checkSplitScreen()
-    {
-        startActivity(new Intent(this, InvisibleActivity.class)
-                .setAction(Constants.ACTION_CHECK_SPLIT_SCREEN)
-                .setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
     private void updateIcon(@NonNull Configuration newConfig)
