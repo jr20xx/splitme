@@ -8,7 +8,7 @@
 
 ## Table of Contents
 
-- [Description of the project](#description)
+- [Description of the project](#description-of-the-project)
 - [Changelog](#changelog)
 - [Contribution](#contribution)
 - [Credits](#credits)
