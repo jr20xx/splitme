@@ -1,7 +1,8 @@
-# SplitMe
 <div align="center">
     <img src="https://github.com/jr20xx/splitme/blob/3c989106e037804ce3fe5491ffa9a05b082fff9e/app/src/main/ic_launcher-playstore.png?raw=true">
 </div>
+
+# SplitMe
 
 [![Repository Size](https://img.shields.io/github/repo-size/jr20xx/splitme?label=Repository+Size)](https://github.com/jr20xx/splitme)
 
