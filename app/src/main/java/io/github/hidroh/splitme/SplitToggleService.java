@@ -18,19 +18,23 @@ public class SplitToggleService extends AccessibilityService
         }
     };
 
+    @Override
     public void onCreate()
     {
         ContextCompat.registerReceiver(this, receiver, new IntentFilter(Constants.ACTION_TOGGLE_SPLIT_SCREEN), ContextCompat.RECEIVER_NOT_EXPORTED);
     }
 
+    @Override
     public void onInterrupt()
     {
     }
 
+    @Override
     public void onAccessibilityEvent(AccessibilityEvent event)
     {
     }
 
+    @Override
     public void onDestroy()
     {
         unregisterReceiver(receiver);

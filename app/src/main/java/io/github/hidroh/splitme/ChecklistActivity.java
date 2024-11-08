@@ -19,15 +19,13 @@ public class ChecklistActivity extends AppCompatActivity
     private ChecklistLayoutBinding binding;
 
     @SuppressLint("BatteryLife")
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.checklist_layout);
-        binding.enableServiceButton.setOnClickListener((v) -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)));
-        binding.disableOptimizationsButton.setOnClickListener((v) ->
-                startActivity(new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:" + getPackageName())))
-        );
+        binding.enableServiceButton.setOnClickListener((v) -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
+        binding.disableOptimizationsButton.setOnClickListener((v) -> startActivity(new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:" + getPackageName()))));
         binding.enableDeviceAdminButton.setOnClickListener((v) ->
         {
             var adminComponent = new ComponentName(this, DeviceAdminReceiver.class);

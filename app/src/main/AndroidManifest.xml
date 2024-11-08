@@ -37,13 +37,8 @@
         <activity
             android:name=".ChecklistActivity"
             android:excludeFromRecents="true"
-            android:exported="true"
-            android:theme="@style/ChecklistTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:theme="@style/ChecklistTheme"/>
 
         <receiver
             android:name="android.app.admin.DeviceAdminReceiver"

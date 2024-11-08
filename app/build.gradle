@@ -9,7 +9,8 @@ android {
     defaultConfig {
         applicationId "io.github.hidroh.splitme"
         minSdk 28
-        targetSdk 33
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 29
         versionCode 1
         versionName "1.0"
         resConfigs "en,es"
