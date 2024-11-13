@@ -1,1 +1,17 @@
+<resources>
+    <string name="app_name">SplitMe</string>
 
+    <string name="label_on">Split ਚਲਾਓ</string>
+    <string name="label_off">Split ਬੰਦ</string>
+
+    <string name="enable">ਯੋਗ ਕਰੋ</string>
+    <string name="disable">ਅਯੋਗ ਕਰੋ</string>
+    <string name="accessibility_service_label">ਅਸੈਂਸੀਬਿਲਟੀ ਸੇਵਾ</string>
+    <string name="battery_optimization_label">ਬੈਟਰੀ ਅਪਟੀਮਾਈਜ਼ੇਸ਼ਨ</string>
+    <string name="battery_optimization_description">ਸਿਸਟਮ ਨੂੰ ਐਪ ਨੂੰ ਮਾਰਨ ਤੋਂ ਰੋਕਣ ਲਈ ਜਦੋਂ ਇਹ ਬੈਕਗ੍ਰਾਉਂਡ ਵਿੱਚ ਜਾਂਦਾ ਹੈ, ਤੁਹਾਨੂੰ SplitMe ਲਈ ਬੈਟਰੀ ਅਨੁਕੂਲਨ ਨੂੰ ਅਯੋਗ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ</string>
+    <string name="device_admin_label">ਡਿਵਾਈਸ ਐਡਮਿਨਸਟਰੇਟਰ</string>
+    <string name="device_admin_description">ਐਪ ਨੂੰ ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਚੱਲਦੇ ਰਹਿਣ ਅਤੇ ਦੁਰਘਟਨਾ ਤੋਂ ਅਣਇੰਸਟੌਲ ਨੂੰ ਰੋਕਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਲਈ, SplitMe ਨੂੰ ਡਿਵਾਈਸ ਪ੍ਰਸ਼ਾਸਕ ਵਜੋਂ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਇਹ ਪੂਰੀ ਤਰ੍ਹਾਂ ਵਿਕਲਪਿਕ ਹੈ ਅਤੇ ਤੁਸੀਂ ਜਦੋਂ ਚਾਹੋ ਇਸਨੂੰ ਬੰਦ ਕਰ ਸਕਦੇ ਹੋ</string>
+
+    <string name="accessibility_service_summary">ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਨੂੰ ਟੌਗਲ ਕਰੋ</string>
+    <string name="accessibility_service_description">ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਨੂੰ ਟੌਗਲ ਕਰਨ ਲਈ, ਜੋ ਕਿ ਇੱਕ ਸਿਸਟਮ ਐਕਸ਼ਨ ਹੈ, SplitMe ਨੂੰ ਅਸੈਸਬਿਲਟੀ ਪਹੁੰਚ ਦਿੱਤੀ ਜਾਣੀ ਚਾਹੀਦੀ ਹੈ। ਇਸ ਸੇਵਾ ਦੁਆਰਾ ਚਾਲੂ ਹੋਣ ਵਾਲੀ ਇੱਕੋ ਇੱਕ ਕਾਰਵਾਈ ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਨੂੰ ਟੌਗਲ ਕਰਨਾ ਹੈ।</string>
+</resources>
