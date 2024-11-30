@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/jr20xx/splitme/blob/3c989106e037804ce3fe5491ffa9a05b082fff9e/app/src/main/ic_launcher-playstore.png?raw=true">
+	<img src="https://raw.githubusercontent.com/jr20xx/splitme/master/.github/resources/banner.jpg" width="100%" alt="Banner">
 </div>
 
 # SplitMe
@@ -34,6 +34,7 @@ The fork was created to try to bring a little more life into the original projec
 - Addition of an activity to centralize the requests of all the permissions.
 - Update of the default strings.
 - Addition of Spanish translations.
+- Addition of Punjabi translations.
 - Addition of an icon for the app.
 - Removal of the deprecated dependency 'LocalBroadcastManager'.
 - Code cleanup.
@@ -48,10 +49,10 @@ You can also contribute to this repo by adding a star to it and/or sharing the l
 
 ### Special thanks to:
 - [Ha Duy Trung](https://github.com/hidroh), for the source code of the original project.
-- [K S Maan](https://github.com/KSMaan45), for most of the ideas for the changes and for testing the app.
+- [K S Maan](https://github.com/KSMaan45), for most of the ideas for the changes, for testing the app and for the Punjabi translations.
 
 ## Preview:
-![demo](demo.gif)
+<img src="https://raw.githubusercontent.com/jr20xx/splitme/master/.github/resources/demo.gif" alt="Demo">
 
 ## Disclaimer
 > [!WARNING]
