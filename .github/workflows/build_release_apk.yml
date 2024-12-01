@@ -1,0 +1,35 @@
+name: Build release APK (unsigned)
+
+on: 
+    workflow_dispatch:
+
+jobs:
+    build:
+        name: Build release APK (unsigned)
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check the code
+              uses: actions/checkout@v4
+
+            - name: Setup JDK
+              uses: actions/setup-java@v4
+              with:
+                distribution: 'temurin'
+                java-version: '17'
+
+            - name: Setup Gradle
+              uses: gradle/actions/setup-gradle@v4
+
+            - name: Build unsigned release APK
+              run: ./gradlew assembleRelease
+
+            - name: Save current date as env variable
+              run: echo "current_date=$(date +'%I%M_%Y%m%d')" >> $GITHUB_ENV
+
+            - name: Upload release APK
+              uses: actions/upload-artifact@v4
+              with:
+                name: 'SplitMe-release-${{ env.current_date }}'
+                path: app/build/outputs/apk/release/*.apk
+                if-no-files-found: error
