@@ -22,8 +22,8 @@ jobs:
               env:
                 ENCODED_KEYSTORE: ${{ secrets.KEYSTORE_BASE64 }}
               run: |
-                echo ENCODED_KEYSTORE > keystore_b64.txt
-                base64 -d keystore_b64.txt > keystore.keystore
+                echo ENCODED_KEYSTORE > keystore.txt
+                base64 -d keystore.txt > keystore.keystore
 
             - name: Setup Gradle
               uses: gradle/actions/setup-gradle@v4
