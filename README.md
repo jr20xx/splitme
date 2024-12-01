@@ -12,6 +12,7 @@
 - [Description of the project](#description-of-the-project)
 - [Changelog](#changelog)
 - [Contribution](#contribution)
+- [Building process](#building-process)
 - [Credits](#credits)
 - [Preview](#preview)
 - [Disclaimer](#disclaimer)
@@ -48,6 +49,20 @@ The fork was created to try to bring a little more life into the original projec
 We value a lot any kind of contribution and we encourage you to submit pull requests and to provide tutorials or other relevant content that might help to improve this project. 
 
 You can also contribute to this repo by adding a star to it and/or sharing the link if you find it helpful in some way. Any form of help will be highly appreciated.
+
+## Building process
+
+This project was coded using [Android Studio Giraffe (2022.3.1 Patch 3)](https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2022.3.1.21/android-studio-2022.3.1.21-linux.tar.gz) in Arch Linux.
+
+In order to follow some [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) principles, there's [a workflow](https://github.com/jr20xx/splitme/actions/workflows/build_project.yml) that automatically builds the project when changes are pushed or when a pull request is opened. Besides that workflow, there are other two workflows that were created to build two different versions of the APK file resultant from this project: a [debug version](https://github.com/jr20xx/splitme/actions/workflows/build_debug_apk.yml) and a [release version](https://github.com/jr20xx/splitme/actions/workflows/build_release_apk.yml). 
+
+When you execute those last two mentioned workflows, the resultant debug version will be signed with a debug key, while the release version will be signed with a custom key created by myself. That means that the resultant APK files won't have the same signature, so be careful when installing the debug or the release version as issues can appear because Android security policies may block the installation of new versions of apps if their signatures don't match.
+
+If you don't want to use any of the workflows previously described to build the project and/or want to build everything on your own, first create a local copy of the project on your device by running the following command in a terminal:
+```bash
+git clone https://github.com/jr20xx/splitme
+```
+After that, just open the project with Android Studio, wait until it sets all things up and you'll be good to go.
 
 ## Credits
 
