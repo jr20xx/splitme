@@ -1,10 +1,11 @@
-name: Build debug APK (unisgned)
+name: Build debug APK (unsigned)
 
 on: 
     workflow_dispatch:
 
 jobs:
     build:
+        name: Build debug APK (unsigned)
         runs-on: ubuntu-latest
 
         steps:
