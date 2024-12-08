@@ -6,30 +6,6 @@ on:
 jobs:
     build:
         name: Build debug APK
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Check the code
-              uses: actions/checkout@v4
-
-            - name: Setup JDK
-              uses: actions/setup-java@v4
-              with:
-                distribution: 'temurin'
-                java-version: '17'
-
-            - name: Setup Gradle
-              uses: gradle/actions/setup-gradle@v4
-
-            - name: Build debug APK
-              run: ./gradlew assembleDebug
-
-            - name: Save current date as env variable
-              run: echo "current_date=$(date +'%I%M_%Y%m%d')" >> $GITHUB_ENV
-
-            - name: Upload debug APK
-              uses: actions/upload-artifact@v4
-              with:
-                name: 'SplitMe-debug-${{ env.current_date }}'
-                path: app/build/outputs/apk/debug/*.apk
-                if-no-files-found: error
+        uses: jr20xx/apk-builder-workflow/.github/workflows/build_debug_apk.yml@main
+        with:
+            app-name: 'SplitMe'
