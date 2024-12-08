@@ -1,0 +1,11 @@
+name: Testing the shared workflow to build a debug APK
+
+on: 
+    workflow_dispatch:
+
+jobs:
+    build:
+        name: Testing shared workflow
+        uses: jr20xx/apk-builder-workflow/.github/workflows/build_debug_apk.yml@main
+        with:
+            app-name: 'SplitMe'
