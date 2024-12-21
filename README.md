@@ -71,6 +71,8 @@ After that, just open the project with Android Studio, wait until it sets all th
 - [K S Maan](https://github.com/KSMaan45), for most of the ideas for the changes, for testing the app and for the Punjabi translations.
 
 ## Preview:
+<img src="https://raw.githubusercontent.com/jr20xx/splitme/master/.github/resources/main.webp" alt="Main Activity">
+
 <img src="https://raw.githubusercontent.com/jr20xx/splitme/master/.github/resources/demo.gif" alt="Demo">
 
 ## Disclaimer
