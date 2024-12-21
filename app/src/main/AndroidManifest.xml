@@ -33,12 +33,21 @@
         <activity
             android:name=".InvisibleActivity"
             android:exported="false"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
             android:theme="@android:style/Theme.NoDisplay" />
         <activity
             android:name=".ChecklistActivity"
             android:excludeFromRecents="true"
-            android:exported="false"
-            android:theme="@style/ChecklistTheme"/>
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:noHistory="true"
+            android:theme="@style/ChecklistTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <receiver
             android:name="android.app.admin.DeviceAdminReceiver"

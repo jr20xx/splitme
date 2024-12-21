@@ -49,7 +49,7 @@ public class SplitTileService extends TileService
                     .setAction(Constants.ACTION_TOGGLE_SPLIT_SCREEN).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
         else
-            startActivityAndCollapse(new Intent(this, ChecklistActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            startActivityAndCollapse(new Intent(this, ChecklistActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_USER_ACTION));
     }
 
     @Override
