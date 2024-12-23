@@ -6,6 +6,7 @@
 
 [![Build project](https://img.shields.io/github/actions/workflow/status/jr20xx/splitme/build_project.yml?branch=master&label=Project%20Build)](https://github.com/jr20xx/splitme/actions/workflows/build_project.yml)
 [![Repository Size](https://img.shields.io/github/repo-size/jr20xx/splitme?label=Repository+Size)](https://github.com/jr20xx/splitme)
+[![License](https://img.shields.io/github/license/jr20xx/splitme?label=License)](https://raw.githubusercontent.com/jr20xx/splitme/master/LICENSE)
 
 ## Table of Contents
 
@@ -43,6 +44,7 @@ The fork was created to try to bring a little more life into the original projec
 - Addition of a workflow to build a debug APK.
 - Addition of a workflow to build a release APK.
 - Addition of workflows to build the project when changes are pushed or when a pull request is opened.
+- Addition of the GPL-3.0 license.
 
 ## Contribution
 
