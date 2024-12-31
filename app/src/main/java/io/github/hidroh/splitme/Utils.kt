@@ -6,23 +6,21 @@ import android.content.Context
 import android.os.PowerManager
 import android.view.accessibility.AccessibilityManager
 
-object Utils {
-    fun isServiceEnabled(context: Context): Boolean {
-        val manager = context.getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
-        for (it in manager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK)) {
-            val serviceInfo = it.resolveInfo.serviceInfo
-            if (serviceInfo.packageName == context.packageName && serviceInfo.name == SplitToggleService::class.java.name) return true
-        }
-        return false
-    }
+fun isServiceEnabled(context: Context): Boolean {
+    (context.getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager).getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK)
+            .forEach {
+                val serviceInfo = it.resolveInfo.serviceInfo
+                if (serviceInfo.packageName == context.packageName && serviceInfo.name == SplitToggleService::class.java.name) return true
+            }
+    return false
+}
 
-    fun isBatteryOptimizationDisabled(context: Context): Boolean {
-        return (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isIgnoringBatteryOptimizations(context.packageName)
-    }
+fun isBatteryOptimizationDisabled(context: Context): Boolean {
+    return (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isIgnoringBatteryOptimizations(context.packageName)
+}
 
-    fun isDeviceAdminEnabled(context: Context): Boolean {
-        val deviceAdmins = (context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager).activeAdmins
-        if (deviceAdmins != null) for (deviceAdmin in deviceAdmins) if (deviceAdmin.packageName == context.packageName) return true
-        return false
-    }
+fun isDeviceAdminEnabled(context: Context): Boolean {
+    val deviceAdmins = (context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager).activeAdmins
+    if (deviceAdmins != null) for (deviceAdmin in deviceAdmins) if (deviceAdmin.packageName == context.packageName) return true
+    return false
 }

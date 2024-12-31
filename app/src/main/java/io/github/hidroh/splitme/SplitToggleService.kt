@@ -16,7 +16,7 @@ class SplitToggleService : AccessibilityService() {
     }
 
     override fun onCreate() {
-        ContextCompat.registerReceiver(this, receiver, IntentFilter(Constants.ACTION_TOGGLE_SPLIT_SCREEN), ContextCompat.RECEIVER_NOT_EXPORTED)
+        ContextCompat.registerReceiver(this, receiver, IntentFilter(ACTION_TOGGLE_SPLIT_SCREEN), ContextCompat.RECEIVER_NOT_EXPORTED)
     }
 
     override fun onInterrupt() {}

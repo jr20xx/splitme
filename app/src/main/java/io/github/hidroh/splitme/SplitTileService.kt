@@ -9,23 +9,21 @@ import android.graphics.drawable.Icon
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import androidx.core.content.ContextCompat
-import io.github.hidroh.splitme.Utils.isBatteryOptimizationDisabled
-import io.github.hidroh.splitme.Utils.isServiceEnabled
 
 class SplitTileService : TileService() {
     private var isActive = false
     private var iconResId = R.drawable.ic_split_black_24dp
     private val receiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            updateTileState(intent.getBooleanExtra(Constants.EXTRA_IS_IN_SPLIT_SCREEN, false))
+            updateTileState(intent.getBooleanExtra(EXTRA_IS_IN_SPLIT_SCREEN, false))
         }
     }
 
     override fun onStartListening() {
-        ContextCompat.registerReceiver(this, receiver, IntentFilter(Constants.ACTION_SPLIT_SCREEN_CHECKED), ContextCompat.RECEIVER_NOT_EXPORTED)
+        ContextCompat.registerReceiver(this, receiver, IntentFilter(ACTION_SPLIT_SCREEN_CHECKED), ContextCompat.RECEIVER_NOT_EXPORTED)
         updateIcon(resources.configuration)
         startActivity(Intent(this, InvisibleActivity::class.java)
-                .setAction(Constants.ACTION_CHECK_SPLIT_SCREEN)
+                .setAction(ACTION_CHECK_SPLIT_SCREEN)
                 .setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT or Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
@@ -35,11 +33,10 @@ class SplitTileService : TileService() {
 
     override fun onClick() {
         if (isServiceEnabled(this) && isBatteryOptimizationDisabled(this)) {
-            isActive = !isActive
-            updateTileState(isActive)
+            updateTileState(!isActive)
             startActivityAndCollapse(Intent(this, InvisibleActivity::class.java)
-                    .setAction(Constants.ACTION_TOGGLE_SPLIT_SCREEN).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-        } else startActivityAndCollapse(Intent(this, ChecklistActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NO_USER_ACTION))
+                    .setAction(ACTION_TOGGLE_SPLIT_SCREEN).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        } else startActivity(Intent(this, ChecklistActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NO_USER_ACTION))
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -48,12 +45,12 @@ class SplitTileService : TileService() {
     }
 
     private fun updateTileState(active: Boolean) {
-        val tile = qsTile
-        if (tile != null) {
-            tile.state = if (active) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
-            tile.label = getString(if (active) R.string.label_on else R.string.label_off)
-            tile.icon = Icon.createWithResource(this, iconResId)
-            tile.updateTile()
+        isActive = active
+        qsTile?.apply {
+            state = if (isActive) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
+            label = getString(if (isActive) R.string.label_on else R.string.label_off)
+            icon = Icon.createWithResource(this@SplitTileService, iconResId)
+            updateTile()
         }
     }
 
