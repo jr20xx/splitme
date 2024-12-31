@@ -28,7 +28,6 @@ The fork was created to try to bring a little more life into the original projec
 
 - Update of the project structure.
 - Compile SDK updated to 33.
-- Code fully translated to Java (may be temporarily).
 - Source compatibility updated to Java 11.
 - Enabled Data and View bindings.
 - Addition of AppCompat libraries.
