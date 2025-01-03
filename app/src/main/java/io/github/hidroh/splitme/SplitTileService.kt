@@ -36,7 +36,7 @@ class SplitTileService : TileService() {
             updateTileState(!isActive)
             startActivityAndCollapse(Intent(this, InvisibleActivity::class.java)
                     .setAction(ACTION_TOGGLE_SPLIT_SCREEN).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-        } else startActivity(Intent(this, ChecklistActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NO_USER_ACTION))
+        } else startActivityAndCollapse(Intent(this, ChecklistActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NO_USER_ACTION))
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
