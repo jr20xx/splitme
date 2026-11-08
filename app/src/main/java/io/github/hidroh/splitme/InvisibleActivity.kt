@@ -8,8 +8,8 @@ class InvisibleActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         when (intent.action) {
-            ACTION_CHECK_SPLIT_SCREEN -> sendBroadcast(Intent(ACTION_SPLIT_SCREEN_CHECKED).putExtra(EXTRA_IS_IN_SPLIT_SCREEN, isInMultiWindowMode))
-            ACTION_TOGGLE_SPLIT_SCREEN -> sendBroadcast(Intent(ACTION_TOGGLE_SPLIT_SCREEN))
+            ACTION_CHECK_SPLIT_SCREEN -> sendBroadcast(Intent(ACTION_SPLIT_SCREEN_CHECKED).putExtra(EXTRA_IS_IN_SPLIT_SCREEN, isInMultiWindowMode).setPackage(packageName))
+            ACTION_TOGGLE_SPLIT_SCREEN -> sendBroadcast(Intent(ACTION_TOGGLE_SPLIT_SCREEN).setPackage(packageName))
         }
         finish()
     }
