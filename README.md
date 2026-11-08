@@ -11,7 +11,7 @@
 ## Table of Contents
 
 - [Description of the project](#description-of-the-project)
-- [Changelog](#changelog)
+- [Changes from the original project](#changes-from-the-original-project)
 - [Contribution](#contribution)
 - [Building process](#building-process)
 - [Credits](#credits)
@@ -24,14 +24,14 @@ This repo contains a fork of [SplitMe](https://github.com/hidroh/splitme/), a pr
 
 The fork was created to try to bring a little more life into the original project, by adding some additional features and experimenting a bit.
 
-## Changelog
+## Changes from the original project
 
-- Update of the project structure.
+- Updated the project structure.
 - Compile SDK updated to 33.
-- Enabled Data and View bindings.
+- Enabled data and view bindings.
 - Addition of AppCompat libraries.
 - Checks to prevent battery optimization from killing the app.
-- Declaration of the app as a Device Administrator to prevent accidental uninstalls.
+- Declaration of the app as a device administrator to prevent accidental uninstalls.
 - Addition of an activity to centralize the requests of all the permissions.
 - Update of the default strings.
 - Addition of Spanish translations.
