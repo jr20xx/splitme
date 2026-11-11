@@ -74,7 +74,7 @@ def main() -> int:
             print(f"Updating metadata for {release_apk_package_name}")
             fdroid_metadata_destiny_file_path.write_bytes(original_metadata_file_bytes)
     else:
-        print(f"Copying metadata for {release_apk_package_name}")
+        print(f"Copying metadata for {release_apk_package_name} to {github_repo_location}")
         fdroid_metadata_destiny_file_path.parent.mkdir(parents=True, exist_ok=True)
         fdroid_metadata_destiny_file_path.write_bytes(original_metadata_file_bytes)
 
