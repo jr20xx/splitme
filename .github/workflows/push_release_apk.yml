@@ -1,0 +1,46 @@
+name: Build release APK and push it to my FDroid repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+    build_and_upload:
+        permissions:
+          contents: read
+
+        name: Build a release APK file
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v7
+
+            - name: Setup JDK
+              uses: actions/setup-java@v6
+              with:
+                distribution: 'temurin'
+                java-version: '17'
+
+            - name: Decode the Keystore
+              run: echo ${{ secrets.KEYSTORE_BASE64 }} | base64 -di > $GITHUB_WORKSPACE/keystore.keystore
+
+            - name: Setup Gradle
+              uses: gradle/actions/setup-gradle@v6
+
+            - name: Build release APK
+              env:
+                KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+                KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+                KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+              run: ./gradlew assembleRelease
+
+            - name: Add aapt2 to PATH
+              run: |
+                AAPT2=$(find "$ANDROID_HOME/build-tools" -name aapt2 -type f | sort -V | tail -n1)
+                echo "Found aapt2 at $AAPT2"
+                echo "$(dirname "$AAPT2")" >> "$GITHUB_PATH"
+
+            - name: Run Python script to upload the release APK to the custom FDroid repo
+              run: python3 .github/scripts/sync_fdroid_repo.py
+              env:
+                GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
