@@ -98,7 +98,7 @@ def main() -> int:
         print("Nothing to commit")
         return 0
 
-    commit_msg = (f"Automated update of the {release_apk_package_name} app")
+    commit_msg = (f'Automated update of the "{release_apk_package_name}" app')
     run(["git", "commit", "-m", commit_msg], cwd=fdroid_repo_clone_directory_path)
 
     try:
