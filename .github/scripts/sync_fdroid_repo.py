@@ -24,7 +24,7 @@ def main() -> int:
     fdroid_repo_clone_directory_path = Path("fdroid").resolve()
 
     release_apk_file_path = Path("app/build/outputs/apk/release/app-release.apk").resolve()
-    release_apk_destiny_path = fdroid_repo_clone_directory_path / "fdroid" / "repo"
+    release_apk_destiny_path = fdroid_repo_clone_directory_path / "repo"
 
     # Clone the custom FDroid repository
     if fdroid_repo_clone_directory_path.exists():
@@ -67,7 +67,7 @@ def main() -> int:
     if not fdroid_metadata_origin_file_path.is_file():
         die("Application metadata is not present under the .fdroid directory")
 
-    fdroid_metadata_destiny_file_path = fdroid_repo_clone_directory_path / "fdroid" / "metadata" / f"{release_apk_package_name}.yml"
+    fdroid_metadata_destiny_file_path = fdroid_repo_clone_directory_path / "metadata" / f"{release_apk_package_name}.yml"
     original_metadata_file_bytes = fdroid_metadata_origin_file_path.read_bytes()
     if fdroid_metadata_destiny_file_path.is_file():
         if original_metadata_file_bytes != fdroid_metadata_destiny_file_path.read_bytes():
