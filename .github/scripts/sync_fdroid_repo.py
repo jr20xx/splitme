@@ -63,9 +63,9 @@ def main() -> int:
     print(f"Successfully obtained the package name and version of the generated release APK")
 
     # Grab the metadata files and, if different or missing at the custom FDroid repo, update it or copy it
-    fdroid_metadata_origin_file_path = Path(f".fdroid/{release_apk_package_name}.yml").resolve()
+    fdroid_metadata_origin_file_path = Path(f"fastlane/metadata/{release_apk_package_name}.yml").resolve()
     if not fdroid_metadata_origin_file_path.is_file():
-        die("Application metadata is not present under the .fdroid directory")
+        die("Application metadata is not present under the fastlane/metadata directory")
 
     fdroid_metadata_destiny_file_path = fdroid_repo_clone_directory_path / "metadata" / f"{release_apk_package_name}.yml"
     original_metadata_file_bytes = fdroid_metadata_origin_file_path.read_bytes()
