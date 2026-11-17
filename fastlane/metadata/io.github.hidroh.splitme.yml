@@ -1,0 +1,7 @@
+AuthorName: 'jr20xx'
+Categories:
+- fdroid
+License: 'GPL-3.0-or-later'
+Name: SplitMe
+SourceCode: 'https://github.com/jr20xx/splitme'
+Summary: 'Quick settings tile to toggle split screen (for Android 9 and above)'

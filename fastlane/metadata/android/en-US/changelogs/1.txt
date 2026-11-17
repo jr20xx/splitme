@@ -1,0 +1,14 @@
+This release contains the modifications made by [jr20xx](https://github.com/jr20xx) to [SplitMe](https://github.com/hidroh/splitme/), a project created by [Ha Duy Trung](https://github.com/hidroh) to add a quick settings tile to toggle the split screen functionality in devices with Android 9 (Pie) and above, where this functionality may be hidden.
+
+Changes from the original project:
+
+- Checks to prevent battery optimization from killing the app.
+- Declaration of the app as a device administrator to prevent accidental uninstalls.
+- Addition of an activity to centralize the requests of all the permissions.
+- Addition of Spanish translations.
+- Addition of Punjabi translations.
+- Addition of an icon for the app.
+- Code cleanup.
+- Addition of the GPL-3.0 license.
+
+To get more details about all the changes from the original project, please visit [the repo of this project](https://github.com/jr20xx/splitme).
