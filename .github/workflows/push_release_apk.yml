@@ -1,4 +1,4 @@
-name: Build release APK and push it to my FDroid repo
+name: Build release APK and sync files with my custom FDroid repo
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ jobs:
         permissions:
           contents: read
 
-        name: Build a release APK file
+        name: Build a release and sync files with custom FDroid repo
         runs-on: ubuntu-latest
 
         steps:
