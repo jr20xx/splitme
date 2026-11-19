@@ -1,4 +1,4 @@
-Esta versión contiene las modificaciones realizadas por [jr20xx](https://github.com/jr20xx) a [SplitMe](https://github.com/hidroh/splitme/), un proyecto creado por [Ha Duy Trung](https://github.com/hidroh) para añadir una baldosa a los ajustes rápidos que permita conmutar el modo de pantalla dividida en Android 9 (Pie) y versiones superiores, donde esta funcionalidad puede estar oculta.
+Esta versión contiene las modificaciones realizadas por jr20xx a SplitMe, un proyecto creado por Ha Duy Trung para añadir una baldosa a los ajustes rápidos que permita conmutar el modo de pantalla dividida en Android 9 (Pie) y versiones superiores, donde esta funcionalidad puede estar oculta.
 
 Cambios realizados a partir del proyecto original:
 
@@ -11,4 +11,4 @@ Cambios realizados a partir del proyecto original:
 - Limpieza del código.
 - Incorporación de la licencia GPL-3.0.
 
-Para obtener más detalles de los cambios a partir del proyecto original, por favor visite [el repositorio de código de este proyecto](https://github.com/jr20xx/splitme).
+Para obtener más detalles de los cambios a partir del proyecto original, por favor visite el repositorio de código de este proyecto.
