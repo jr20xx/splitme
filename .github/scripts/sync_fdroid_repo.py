@@ -24,7 +24,7 @@ def main() -> int:
     fdroid_repo_clone_directory_path = Path("fdroid").resolve()
 
     release_apk_file_path = Path("app/build/outputs/apk/release/app-release.apk").resolve()
-    release_apk_destiny_path = fdroid_repo_clone_directory_path / "repo"
+    fdroid_repository_repo_directory_path = fdroid_repo_clone_directory_path / "repo"
 
     # Clone the custom FDroid repository
     if fdroid_repo_clone_directory_path.exists():
@@ -62,25 +62,60 @@ def main() -> int:
     release_apk_version = release_apk_version_matches.group(1)
     print(f"Successfully obtained the package name and version of the generated release APK")
 
-    # Grab the metadata files and, if different or missing at the custom FDroid repo, update it or copy it
-    fdroid_metadata_origin_file_path = Path(f"fastlane/metadata/{release_apk_package_name}.yml").resolve()
-    if not fdroid_metadata_origin_file_path.is_file():
+    # Grab the metadata files and, if different or missing at the custom FDroid repo, update or copy them
+    fastlane_metadata_directory_path = Path("fastlane/metadata").resolve()
+    fdroid_repository_metadata_directory_path = fdroid_repo_clone_directory_path / "metadata"
+    application_metadata_origin_file_path = Path(fastlane_metadata_directory_path / f"{release_apk_package_name}.yml").resolve()
+
+    if not application_metadata_origin_file_path.is_file():
         die("Application metadata is not present under the fastlane/metadata directory")
 
-    fdroid_metadata_destiny_file_path = fdroid_repo_clone_directory_path / "metadata" / f"{release_apk_package_name}.yml"
-    original_metadata_file_bytes = fdroid_metadata_origin_file_path.read_bytes()
+    fdroid_metadata_destiny_file_path = fdroid_repository_metadata_directory_path / f"{release_apk_package_name}.yml"
+    original_metadata_file_bytes = application_metadata_origin_file_path.read_bytes()
     if fdroid_metadata_destiny_file_path.is_file():
         if original_metadata_file_bytes != fdroid_metadata_destiny_file_path.read_bytes():
-            print(f"Updating metadata for {release_apk_package_name}")
+            print(f"Updating basic metadata for {release_apk_package_name}")
             fdroid_metadata_destiny_file_path.write_bytes(original_metadata_file_bytes)
     else:
-        print(f"Copying metadata for {release_apk_package_name} to {github_repo_location}")
+        print(f"Copying basic metadata for {release_apk_package_name} to {github_repo_location}")
         fdroid_metadata_destiny_file_path.parent.mkdir(parents=True, exist_ok=True)
         fdroid_metadata_destiny_file_path.write_bytes(original_metadata_file_bytes)
 
+    localized_metadata_directory_path = fastlane_metadata_directory_path / "android"
+    fdroid_repository_changelogs_directory_initial_path = fdroid_repository_metadata_directory_path / release_apk_package_name
+
+    # Check if fastlane/metadata/android is a directory
+    if(localized_metadata_directory_path.is_dir()):
+        # Go through directories at fastlane/metadata/android
+        for localized_metadata_child_item in sorted(localized_metadata_directory_path.iterdir()):
+            if localized_metadata_child_item.is_dir():
+                # Go through localized resources under fastlane/metadata/android/{locale}
+                for metadata_child_item in ("changelogs", "images"):
+                    current_directory_path = localized_metadata_child_item / metadata_child_item
+                    if current_directory_path.is_dir():
+                        if metadata_child_item == "changelogs":
+                            fdroid_repository_changelogs_directory_final_path = (fdroid_repository_changelogs_directory_initial_path / localized_metadata_child_item.name / metadata_child_item)
+                            for changelog_item in sorted(current_directory_path.iterdir()):
+                                if (changelog_item.is_file()):
+                                    fdroid_changelog_file = fdroid_repository_changelogs_directory_final_path / changelog_item.name
+                                    original_changelog_bytes = changelog_item.read_bytes()
+                                    if not fdroid_changelog_file.is_file() or original_changelog_bytes != fdroid_changelog_file.read_bytes():
+                                        print(f"Copying changelog file {changelog_item.name} to the FDroid repository files...")
+                                        fdroid_changelog_file.parent.mkdir(parents=True, exist_ok=True)
+                                        fdroid_changelog_file.write_bytes(original_changelog_bytes)
+                        else:
+                            fdroid_application_icon_file_path = (fdroid_repository_repo_directory_path / release_apk_package_name / localized_metadata_child_item.name / "icon.png")
+                            application_icon_file_path = current_directory_path / "icon.png"
+                            if application_icon_file_path.is_file():
+                                original_icon_file_bytes = application_icon_file_path.read_bytes()
+                                if not fdroid_application_icon_file_path.is_file() or original_icon_file_bytes != fdroid_application_icon_file_path.read_bytes():
+                                    print("Copying the application icon file...")
+                                    fdroid_application_icon_file_path.parent.mkdir(parents=True, exist_ok=True)
+                                    fdroid_application_icon_file_path.write_bytes(original_icon_file_bytes)
+
     # Copy the release APK file to the custom FDroid repo
-    release_apk_destiny_path.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(release_apk_file_path, release_apk_destiny_path / f"{release_apk_package_name}_v{release_apk_version}.apk")
+    fdroid_repository_repo_directory_path.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(release_apk_file_path, fdroid_repository_repo_directory_path / f"{release_apk_package_name}_v{release_apk_version}.apk")
     print(f"Copied the release APK file to the custom FDroid repo files tree")
 
     # Fetching the access token and encoding it as Base64
